@@ -1,11 +1,16 @@
+import java.util.Scanner;
+
 public class MentalHealthTracker {
     public int mood;
 
     public String sayHello() {
-        return "hello, how are you feeling today?";
+        return "hello, it's time for your check-in :)";
     }
 
-    public String askUserForMoodRating() {
-        return "On a scale of 1 to 10, how would you rate your mood today?";
+    public void askUserForMoodRating() {
+        Scanner input = new Scanner(System.in);
+        System.out.print("On a scale of 1 to 10, please rate your mood: ");
+        this.mood = input.nextInt();
+        input.close();
     }
 }
