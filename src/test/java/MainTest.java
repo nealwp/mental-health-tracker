@@ -21,4 +21,13 @@ public class MainTest {
         tracker.askUserForMoodRating();
         assertEquals(5, tracker.mood);
     }
+
+    @Test
+    void tracker_shouldWaitForValidMoodRating() {
+        String simulatedInput = "11\n-3\n6"; // first two inputs are invalid, third is valid
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(simulatedInput.getBytes());
+        System.setIn(inputStream);
+        tracker.askUserForMoodRating();
+        assertEquals(6, tracker.mood);
+    }
 }

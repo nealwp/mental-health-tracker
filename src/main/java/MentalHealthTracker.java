@@ -9,8 +9,10 @@ public class MentalHealthTracker {
 
     public void askUserForMoodRating() {
         Scanner input = new Scanner(System.in);
-        System.out.print("On a scale of 1 to 10, please rate your mood: ");
-        this.mood = input.nextInt();
+        while (this.mood < 1 || this.mood > 10) {
+            System.out.print("On a scale of 1 to 10, please rate your mood: ");
+            this.mood = input.nextInt();
+        }
         input.close();
     }
 }
