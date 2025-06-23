@@ -4,6 +4,7 @@ import java.util.Scanner;
 public class MentalHealthTracker {
     public int mood;
     public int stress;
+    public String reflection;
     private PrintStream printer;
     private Scanner scanner;
 
@@ -29,4 +30,16 @@ public class MentalHealthTracker {
             this.stress = this.scanner.nextInt();
         }
     }
+
+    public void askUserForReflection() {
+        this.printer.println("Do you have any particular thoughts today?");
+        String reflection = this.scanner.nextLine();
+        if (reflection.length() == 0) {
+            this.reflection = "";
+        } else {
+            this.reflection = reflection;
+        }
+
+    }
+
 }

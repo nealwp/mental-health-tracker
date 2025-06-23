@@ -48,4 +48,22 @@ public class MainTest {
         tracker.askUserForStressRating();
         assertEquals(7, tracker.stress);
     }
+
+    @Test
+    void tracker_shouldCollectReflectionFromUser() {
+        String reflectionInput = "i felt alright today.";
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(reflectionInput.getBytes());
+        MentalHealthTracker tracker = new MentalHealthTracker(System.out, new Scanner(inputStream));
+        tracker.askUserForReflection();
+        assertEquals(reflectionInput, tracker.reflection);
+    }
+
+    @Test
+    void tracker_shouldAllowEmptyReflection() {
+        String reflectionInput = "\n";
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(reflectionInput.getBytes());
+        MentalHealthTracker tracker = new MentalHealthTracker(System.out, new Scanner(inputStream));
+        tracker.askUserForReflection();
+        assertEquals("", tracker.reflection);
+    }
 }
