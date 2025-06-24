@@ -131,7 +131,7 @@ public class MentalHealthTracker {
                 String[] fields = line.split(",", -1);
 
                 // print a formatted output
-                System.out.printf("Date: %s; Mood: %d; Stress: %d; Reflection: %s%n",
+                System.out.printf("Date: %s; Mood: %s; Stress: %s; Reflection: %s%n",
                         fields[0], fields[1], fields[2], fields[3]);
             }
 
