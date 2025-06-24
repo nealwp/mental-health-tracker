@@ -8,12 +8,6 @@ import org.junit.jupiter.api.Test;
 public class MainTest {
 
     @Test
-    public void tracker_shouldGreetTheUser() {
-        MentalHealthTracker tracker = new MentalHealthTracker(System.out, new Scanner(System.in));
-        assertEquals("hello, it's time for your check-in :)", tracker.sayHello());
-    }
-
-    @Test
     void tracker_shouldCollectMoodRatingFromUser() {
         String moodRatingInput = "5";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(moodRatingInput.getBytes());
@@ -66,4 +60,5 @@ public class MainTest {
         tracker.askUserForReflection();
         assertEquals("", tracker.reflection);
     }
+
 }

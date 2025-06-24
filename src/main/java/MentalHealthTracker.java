@@ -13,8 +13,15 @@ public class MentalHealthTracker {
         this.scanner = scanner;
     }
 
-    public String sayHello() {
-        return "hello, it's time for your check-in :)";
+    public void run() {
+        sayHello();
+        askUserForMoodRating();
+        askUserForStressRating();
+        askUserForReflection();
+    }
+
+    public void sayHello() {
+        this.printer.println("hello, it's time for your check-in :)");
     }
 
     public void askUserForMoodRating() {
@@ -32,8 +39,8 @@ public class MentalHealthTracker {
     }
 
     public void askUserForReflection() {
-        this.printer.println("Do you have any particular thoughts today?");
-        String reflection = this.scanner.nextLine();
+        this.printer.print("Do you have any particular thoughts today? ");
+        String reflection = this.scanner.next();
         if (reflection.length() == 0) {
             this.reflection = "";
         } else {
