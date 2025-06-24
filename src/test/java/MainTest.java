@@ -9,7 +9,7 @@ public class MainTest {
 
     @Test
     void tracker_shouldCollectMoodRatingFromUser() {
-        String moodRatingInput = "5";
+        String moodRatingInput = "5\n";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(moodRatingInput.getBytes());
         MentalHealthTracker tracker = new MentalHealthTracker(System.out, new Scanner(inputStream));
         tracker.askUserForMoodRating();
@@ -18,7 +18,7 @@ public class MainTest {
 
     @Test
     void tracker_shouldWaitForValidMoodRating() {
-        String moodRatingInput = "11\n-3\n6"; // first two inputs are invalid, third is valid
+        String moodRatingInput = "11\n-3\n6\n"; // first two inputs are invalid, third is valid
         ByteArrayInputStream inputStream = new ByteArrayInputStream(moodRatingInput.getBytes());
         MentalHealthTracker tracker = new MentalHealthTracker(System.out, new Scanner(inputStream));
         tracker.askUserForMoodRating();
@@ -27,7 +27,7 @@ public class MainTest {
 
     @Test
     void tracker_shouldCollectStressRatingFromUser() {
-        String stressRatingInput = "7";
+        String stressRatingInput = "7\n";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(stressRatingInput.getBytes());
         MentalHealthTracker tracker = new MentalHealthTracker(System.out, new Scanner(inputStream));
         tracker.askUserForStressRating();
@@ -36,7 +36,7 @@ public class MainTest {
 
     @Test
     void tracker_shouldWaitForValidStressRating() {
-        String stressRatingInput = "11\n-3\n7"; // first two inputs are invalid, third is valid
+        String stressRatingInput = "11\n-3\n7\n"; // first two inputs are invalid, third is valid
         ByteArrayInputStream inputStream = new ByteArrayInputStream(stressRatingInput.getBytes());
         MentalHealthTracker tracker = new MentalHealthTracker(System.out, new Scanner(inputStream));
         tracker.askUserForStressRating();
@@ -45,11 +45,11 @@ public class MainTest {
 
     @Test
     void tracker_shouldCollectReflectionFromUser() {
-        String reflectionInput = "i felt alright today.";
+        String reflectionInput = "i felt alright today.\n";
         ByteArrayInputStream inputStream = new ByteArrayInputStream(reflectionInput.getBytes());
         MentalHealthTracker tracker = new MentalHealthTracker(System.out, new Scanner(inputStream));
         tracker.askUserForReflection();
-        assertEquals(reflectionInput, tracker.reflection);
+        assertEquals("i felt alright today.", tracker.reflection);
     }
 
     @Test

@@ -21,30 +21,32 @@ public class MentalHealthTracker {
     }
 
     public void sayHello() {
-        this.printer.println("hello, it's time for your check-in :)");
+        printer.println("hello, it's time for your check-in :)");
     }
 
     public void askUserForMoodRating() {
-        while (this.mood < 1 || this.mood > 10) {
-            this.printer.print("On a scale of 1 to 10, please rate your mood: ");
-            this.mood = this.scanner.nextInt();
+        while (mood < 1 || mood > 10) {
+            printer.print("On a scale of 1 to 10, please rate your mood: ");
+            mood = scanner.nextInt();
+            scanner.nextLine();
         }
     }
 
     public void askUserForStressRating() {
-        while (this.stress < 1 || this.stress > 10) {
-            this.printer.print("On a scale of 1 to 10, please rate your stress: ");
-            this.stress = this.scanner.nextInt();
+        while (stress < 1 || stress > 10) {
+            printer.print("On a scale of 1 to 10, please rate your stress: ");
+            stress = scanner.nextInt();
+            scanner.nextLine();
         }
     }
 
     public void askUserForReflection() {
-        this.printer.print("Do you have any particular thoughts today? ");
-        String reflection = this.scanner.next();
-        if (reflection.length() == 0) {
-            this.reflection = "";
+        printer.print("Do you have any particular thoughts today? ");
+        String input = scanner.nextLine();
+        if (input.length() == 0) {
+            reflection = "";
         } else {
-            this.reflection = reflection;
+            reflection = input;
         }
 
     }
